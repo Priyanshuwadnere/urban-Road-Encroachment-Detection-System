@@ -1,0 +1,545 @@
+{
+  "type": "FeatureCollection",
+  "name": "05_BUILDING_FOOTPRINTS_IMAGE",
+  "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE \u2014 NOT AN OFFICIAL MUNICIPAL RECORD",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-P06-01",
+        "parcel_id": "P-06",
+        "name": "Venkateshwara Commercial Plaza",
+        "structure_type": "Commercial Complex (G+2)",
+        "data_provenance": "VERIFIED_PHYSICAL_BUILDING_FOOTPRINT",
+        "setback_from_row_m": 0.75,
+        "status": "WITHIN PERMISSIBLE BOUNDARY",
+        "action_required": "NO ACTION REQUIRED",
+        "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE \u2014 NOT AN OFFICIAL MUNICIPAL RECORD"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              590.0,
+              709.0
+            ],
+            [
+              852.0,
+              709.0
+            ],
+            [
+              852.0,
+              629.0
+            ],
+            [
+              596.0,
+              629.0
+            ],
+            [
+              596.0,
+              655.0
+            ],
+            [
+              590.0,
+              655.0
+            ],
+            [
+              590.0,
+              709.0
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-P07-01",
+        "parcel_id": "P-07",
+        "name": "Shanti Heights Main Building",
+        "structure_type": "Mixed Residential/Commercial Block",
+        "data_provenance": "VERIFIED_PHYSICAL_BUILDING_FOOTPRINT",
+        "setback_from_row_m": 1.47,
+        "status": "WITHIN PERMISSIBLE BOUNDARY",
+        "action_required": "NO ACTION REQUIRED",
+        "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE \u2014 NOT AN OFFICIAL MUNICIPAL RECORD"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              608.0,
+              611.0
+            ],
+            [
+              846.0,
+              611.0
+            ],
+            [
+              846.0,
+              489.0
+            ],
+            [
+              612.0,
+              489.0
+            ],
+            [
+              612.0,
+              548.0
+            ],
+            [
+              608.0,
+              548.0
+            ],
+            [
+              608.0,
+              611.0
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-P08-01",
+        "parcel_id": "P-08",
+        "name": "Surya Electricals Main Commercial Building",
+        "structure_type": "Commercial Retail / Workshop",
+        "data_provenance": "VERIFIED_PHYSICAL_BUILDING_FOOTPRINT",
+        "setback_from_row_m": 2.4,
+        "status": "WITHIN PERMISSIBLE BOUNDARY",
+        "action_required": "NO ACTION REQUIRED",
+        "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE \u2014 NOT AN OFFICIAL MUNICIPAL RECORD"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              632.0,
+              471.0
+            ],
+            [
+              832.0,
+              471.0
+            ],
+            [
+              832.0,
+              327.0
+            ],
+            [
+              638.0,
+              327.0
+            ],
+            [
+              638.0,
+              388.0
+            ],
+            [
+              632.0,
+              388.0
+            ],
+            [
+              632.0,
+              471.0
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-P09-01",
+        "parcel_id": "P-09",
+        "name": "Laxmi Commercials Complex",
+        "structure_type": "Commercial Storehouse & Offices",
+        "data_provenance": "VERIFIED_PHYSICAL_BUILDING_FOOTPRINT",
+        "setback_from_row_m": 2.26,
+        "status": "WITHIN PERMISSIBLE BOUNDARY",
+        "action_required": "NO ACTION REQUIRED",
+        "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE \u2014 NOT AN OFFICIAL MUNICIPAL RECORD"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              636.0,
+              297.0
+            ],
+            [
+              834.0,
+              297.0
+            ],
+            [
+              834.0,
+              160.0
+            ],
+            [
+              640.0,
+              160.0
+            ],
+            [
+              640.0,
+              221.0
+            ],
+            [
+              636.0,
+              221.0
+            ],
+            [
+              636.0,
+              297.0
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-P10-01",
+        "parcel_id": "P-10",
+        "name": "Apollo Pharmacy Branch Building",
+        "structure_type": "Commercial Healthcare / Retail",
+        "data_provenance": "VERIFIED_PHYSICAL_BUILDING_FOOTPRINT",
+        "setback_from_row_m": 1.61,
+        "status": "WITHIN PERMISSIBLE BOUNDARY",
+        "action_required": "NO ACTION REQUIRED",
+        "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE \u2014 NOT AN OFFICIAL MUNICIPAL RECORD"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              630.0,
+              147.0
+            ],
+            [
+              842.0,
+              147.0
+            ],
+            [
+              842.0,
+              9.0
+            ],
+            [
+              636.0,
+              9.0
+            ],
+            [
+              636.0,
+              65.0
+            ],
+            [
+              630.0,
+              65.0
+            ],
+            [
+              630.0,
+              147.0
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-P01-01",
+        "parcel_id": "P-01",
+        "name": "Shree Sai Commercial Block",
+        "structure_type": "Commercial Trading Warehouse",
+        "data_provenance": "VERIFIED_PHYSICAL_BUILDING_FOOTPRINT",
+        "setback_from_row_m": 2.94,
+        "status": "WITHIN PERMISSIBLE BOUNDARY",
+        "action_required": "NO ACTION REQUIRED",
+        "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE \u2014 NOT AN OFFICIAL MUNICIPAL RECORD"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              88.0,
+              709.0
+            ],
+            [
+              358.0,
+              709.0
+            ],
+            [
+              358.0,
+              661.0
+            ],
+            [
+              364.0,
+              661.0
+            ],
+            [
+              364.0,
+              621.0
+            ],
+            [
+              360.0,
+              621.0
+            ],
+            [
+              360.0,
+              585.0
+            ],
+            [
+              88.0,
+              585.0
+            ],
+            [
+              88.0,
+              709.0
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-P02-01",
+        "parcel_id": "P-02",
+        "name": "Balaji Nilayam Residential Block",
+        "structure_type": "Residential Multi-Family",
+        "data_provenance": "VERIFIED_PHYSICAL_BUILDING_FOOTPRINT",
+        "setback_from_row_m": 2.65,
+        "status": "WITHIN PERMISSIBLE BOUNDARY",
+        "action_required": "NO ACTION REQUIRED",
+        "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE \u2014 NOT AN OFFICIAL MUNICIPAL RECORD"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              92.0,
+              569.0
+            ],
+            [
+              364.0,
+              569.0
+            ],
+            [
+              364.0,
+              531.0
+            ],
+            [
+              368.0,
+              531.0
+            ],
+            [
+              368.0,
+              485.0
+            ],
+            [
+              362.0,
+              485.0
+            ],
+            [
+              362.0,
+              449.0
+            ],
+            [
+              92.0,
+              449.0
+            ],
+            [
+              92.0,
+              569.0
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-P03-01",
+        "parcel_id": "P-03",
+        "name": "Sri Krishna Krupa Villa",
+        "structure_type": "Residential Villa",
+        "data_provenance": "VERIFIED_PHYSICAL_BUILDING_FOOTPRINT",
+        "setback_from_row_m": 1.61,
+        "status": "WITHIN PERMISSIBLE BOUNDARY",
+        "action_required": "NO ACTION REQUIRED",
+        "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE \u2014 NOT AN OFFICIAL MUNICIPAL RECORD"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              178.0,
+              433.0
+            ],
+            [
+              382.0,
+              433.0
+            ],
+            [
+              382.0,
+              388.0
+            ],
+            [
+              386.0,
+              388.0
+            ],
+            [
+              386.0,
+              328.0
+            ],
+            [
+              380.0,
+              328.0
+            ],
+            [
+              380.0,
+              293.0
+            ],
+            [
+              210.0,
+              293.0
+            ],
+            [
+              210.0,
+              328.0
+            ],
+            [
+              178.0,
+              328.0
+            ],
+            [
+              178.0,
+              433.0
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-P04-01",
+        "parcel_id": "P-04",
+        "name": "Raghavendra Residency Complex",
+        "structure_type": "Residential Duplex",
+        "data_provenance": "VERIFIED_PHYSICAL_BUILDING_FOOTPRINT",
+        "setback_from_row_m": 1.74,
+        "status": "WITHIN PERMISSIBLE BOUNDARY",
+        "action_required": "NO ACTION REQUIRED",
+        "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE \u2014 NOT AN OFFICIAL MUNICIPAL RECORD"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              138.0,
+              273.0
+            ],
+            [
+              376.0,
+              273.0
+            ],
+            [
+              376.0,
+              238.0
+            ],
+            [
+              382.0,
+              238.0
+            ],
+            [
+              382.0,
+              191.0
+            ],
+            [
+              378.0,
+              191.0
+            ],
+            [
+              378.0,
+              159.0
+            ],
+            [
+              138.0,
+              159.0
+            ],
+            [
+              138.0,
+              273.0
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-P05-01",
+        "parcel_id": "P-05",
+        "name": "Omkar Commercial Center",
+        "structure_type": "Commercial Office & Retail",
+        "data_provenance": "VERIFIED_PHYSICAL_BUILDING_FOOTPRINT",
+        "setback_from_row_m": 2.39,
+        "status": "WITHIN PERMISSIBLE BOUNDARY",
+        "action_required": "NO ACTION REQUIRED",
+        "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE \u2014 NOT AN OFFICIAL MUNICIPAL RECORD"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              88.0,
+              139.0
+            ],
+            [
+              362.0,
+              139.0
+            ],
+            [
+              362.0,
+              99.0
+            ],
+            [
+              368.0,
+              99.0
+            ],
+            [
+              368.0,
+              43.0
+            ],
+            [
+              360.0,
+              43.0
+            ],
+            [
+              360.0,
+              13.0
+            ],
+            [
+              88.0,
+              13.0
+            ],
+            [
+              88.0,
+              139.0
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

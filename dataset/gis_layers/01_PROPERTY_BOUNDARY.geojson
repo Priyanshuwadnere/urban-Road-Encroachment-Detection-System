@@ -1,0 +1,417 @@
+{
+  "type": "FeatureCollection",
+  "name": "01_PROPERTY_BOUNDARY",
+  "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE \u2014 NOT AN OFFICIAL MUNICIPAL RECORD",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "P-01",
+        "house_no": "H.No. 12-1-1",
+        "plot_no": "Plot 1",
+        "owner_name_synthetic": "Shree Sai Enterprises",
+        "address_synthetic": "H.No. 12-1-1, Plot 1, West Corridor, Road R-001",
+        "area_sqm": 120.0,
+        "corridor_side": "West",
+        "structure_type": "Commercial Trading Warehouse",
+        "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE \u2014 NOT AN OFFICIAL MUNICIPAL RECORD"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              0.0,
+              24.45
+            ],
+            [
+              20.0,
+              24.45
+            ],
+            [
+              20.0,
+              30.45
+            ],
+            [
+              0.0,
+              30.45
+            ],
+            [
+              0.0,
+              24.45
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "P-02",
+        "house_no": "H.No. 12-1-3",
+        "plot_no": "Plot 2",
+        "owner_name_synthetic": "Balaji Nilayam Residency",
+        "address_synthetic": "H.No. 12-1-3, Plot 2, West Corridor, Road R-001",
+        "area_sqm": 144.0,
+        "corridor_side": "West",
+        "structure_type": "Residential Multi-Family",
+        "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE \u2014 NOT AN OFFICIAL MUNICIPAL RECORD"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              0.0,
+              17.25
+            ],
+            [
+              20.0,
+              17.25
+            ],
+            [
+              20.0,
+              24.45
+            ],
+            [
+              0.0,
+              24.45
+            ],
+            [
+              0.0,
+              17.25
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "P-03",
+        "house_no": "H.No. 12-1-5",
+        "plot_no": "Plot 3",
+        "owner_name_synthetic": "Sri Krishna Krupa",
+        "address_synthetic": "H.No. 12-1-5, Plot 3, West Corridor, Road R-001",
+        "area_sqm": 120.0,
+        "corridor_side": "West",
+        "structure_type": "Residential Villa",
+        "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE \u2014 NOT AN OFFICIAL MUNICIPAL RECORD"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              0.0,
+              11.25
+            ],
+            [
+              20.0,
+              11.25
+            ],
+            [
+              20.0,
+              17.25
+            ],
+            [
+              0.0,
+              17.25
+            ],
+            [
+              0.0,
+              11.25
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "P-04",
+        "house_no": "H.No. 12-1-7",
+        "plot_no": "Plot 4",
+        "owner_name_synthetic": "Raghavendra Residency",
+        "address_synthetic": "H.No. 12-1-7, Plot 4, West Corridor, Road R-001",
+        "area_sqm": 105.0,
+        "corridor_side": "West",
+        "structure_type": "Residential Duplex",
+        "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE \u2014 NOT AN OFFICIAL MUNICIPAL RECORD"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              0.0,
+              6.0
+            ],
+            [
+              20.0,
+              6.0
+            ],
+            [
+              20.0,
+              11.25
+            ],
+            [
+              0.0,
+              11.25
+            ],
+            [
+              0.0,
+              6.0
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "P-05",
+        "house_no": "H.No. 12-1-9",
+        "plot_no": "Plot 5",
+        "owner_name_synthetic": "Maruti Krupa Nilayam",
+        "address_synthetic": "H.No. 12-1-9, Plot 5, West Corridor, Road R-001",
+        "area_sqm": 120.0,
+        "corridor_side": "West",
+        "structure_type": "Commercial Storefront",
+        "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE \u2014 NOT AN OFFICIAL MUNICIPAL RECORD"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              20.0,
+              0.0
+            ],
+            [
+              20.0,
+              6.0
+            ],
+            [
+              0.0,
+              6.0
+            ],
+            [
+              0.0,
+              0.0
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "P-06",
+        "house_no": "H.No. 12-1-2",
+        "plot_no": "Plot 6",
+        "owner_name_synthetic": "Royal Auto Works",
+        "address_synthetic": "H.No. 12-1-2, Plot 6, East Corridor, Road R-001",
+        "area_sqm": 92.0,
+        "corridor_side": "East",
+        "structure_type": "Automotive Repair & Spare Parts",
+        "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE \u2014 NOT AN OFFICIAL MUNICIPAL RECORD"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              29.0,
+              26.25
+            ],
+            [
+              49.0,
+              26.25
+            ],
+            [
+              49.0,
+              30.85
+            ],
+            [
+              29.0,
+              30.85
+            ],
+            [
+              29.0,
+              26.25
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "P-07",
+        "house_no": "H.No. 12-1-4",
+        "plot_no": "Plot 7",
+        "owner_name_synthetic": "Shanti Heights",
+        "address_synthetic": "H.No. 12-1-4, Plot 7, East Corridor, Road R-001",
+        "area_sqm": 120.0,
+        "corridor_side": "East",
+        "structure_type": "Commercial Retail Plaza & Grocery",
+        "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE \u2014 NOT AN OFFICIAL MUNICIPAL RECORD"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              29.0,
+              20.25
+            ],
+            [
+              49.0,
+              20.25
+            ],
+            [
+              49.0,
+              26.25
+            ],
+            [
+              29.0,
+              26.25
+            ],
+            [
+              29.0,
+              20.25
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "P-08",
+        "house_no": "H.No. 12-1-6",
+        "plot_no": "Plot 8",
+        "owner_name_synthetic": "Surya Electricals",
+        "address_synthetic": "H.No. 12-1-6, Plot 8, East Corridor, Road R-001",
+        "area_sqm": 120.0,
+        "corridor_side": "East",
+        "structure_type": "Hardware & Electrical Repair Workshop",
+        "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE \u2014 NOT AN OFFICIAL MUNICIPAL RECORD"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              29.0,
+              14.25
+            ],
+            [
+              49.0,
+              14.25
+            ],
+            [
+              49.0,
+              20.25
+            ],
+            [
+              29.0,
+              20.25
+            ],
+            [
+              29.0,
+              14.25
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "P-09",
+        "house_no": "H.No. 12-1-8",
+        "plot_no": "Plot 9",
+        "owner_name_synthetic": "Omkar Nilayam",
+        "address_synthetic": "H.No. 12-1-8, Plot 9, East Corridor, Road R-001",
+        "area_sqm": 135.0,
+        "corridor_side": "East",
+        "structure_type": "Residential Multi-Story",
+        "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE \u2014 NOT AN OFFICIAL MUNICIPAL RECORD"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              29.0,
+              7.5
+            ],
+            [
+              49.0,
+              7.5
+            ],
+            [
+              49.0,
+              14.25
+            ],
+            [
+              29.0,
+              14.25
+            ],
+            [
+              29.0,
+              7.5
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "P-10",
+        "house_no": "H.No. 12-1-10",
+        "plot_no": "Plot 10",
+        "owner_name_synthetic": "Venkateshwara Residency",
+        "address_synthetic": "H.No. 12-1-10, Plot 10, East Corridor, Road R-001",
+        "area_sqm": 150.0,
+        "corridor_side": "East",
+        "structure_type": "Residential Apartment Complex",
+        "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE \u2014 NOT AN OFFICIAL MUNICIPAL RECORD"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              29.0,
+              0.0
+            ],
+            [
+              49.0,
+              0.0
+            ],
+            [
+              49.0,
+              7.5
+            ],
+            [
+              29.0,
+              7.5
+            ],
+            [
+              29.0,
+              0.0
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

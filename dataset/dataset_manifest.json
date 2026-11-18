@@ -1,0 +1,92 @@
+{
+  "total_sequences": 3,
+  "total_frames_found": 90,
+  "total_valid_frames": 90,
+  "total_missing_frames": 0,
+  "total_corrupted_frames": 0,
+  "total_duplicate_frames": 0,
+  "total_invalid_filename_frames": 0,
+  "frames_per_sequence": {
+    "SEQ01": 30,
+    "SEQ02": 30,
+    "SEQ03": 30
+  },
+  "resolutions_summary": {
+    "171x154": 60,
+    "171x153": 60,
+    "170x154": 60,
+    "170x153": 60,
+    "171x136": 30,
+    "171x137": 30,
+    "170x137": 30,
+    "170x136": 30
+  },
+  "sequence_splits": [
+    {
+      "sequence_id": "SEQ01",
+      "assigned_split": "TRAIN",
+      "frame_count": 30
+    },
+    {
+      "sequence_id": "SEQ02",
+      "assigned_split": "VAL",
+      "frame_count": 30
+    },
+    {
+      "sequence_id": "SEQ03",
+      "assigned_split": "TEST",
+      "frame_count": 30
+    }
+  ],
+  "sequence_summaries": [
+    {
+      "sequence_id": "SEQ01",
+      "road_id": "R001",
+      "total_expected_frames": 30,
+      "valid_frames_count": 30,
+      "missing_frame_ids": [],
+      "corrupted_frame_ids": [],
+      "duplicate_frame_ids": [],
+      "invalid_filename_count": 0,
+      "resolutions_found": [
+        "171x154",
+        "171x153",
+        "170x154",
+        "170x153"
+      ]
+    },
+    {
+      "sequence_id": "SEQ02",
+      "road_id": "R001",
+      "total_expected_frames": 30,
+      "valid_frames_count": 30,
+      "missing_frame_ids": [],
+      "corrupted_frame_ids": [],
+      "duplicate_frame_ids": [],
+      "invalid_filename_count": 0,
+      "resolutions_found": [
+        "171x136",
+        "171x137",
+        "170x137",
+        "170x136"
+      ]
+    },
+    {
+      "sequence_id": "SEQ03",
+      "road_id": "R001",
+      "total_expected_frames": 30,
+      "valid_frames_count": 30,
+      "missing_frame_ids": [],
+      "corrupted_frame_ids": [],
+      "duplicate_frame_ids": [],
+      "invalid_filename_count": 0,
+      "resolutions_found": [
+        "171x154",
+        "171x153",
+        "170x154",
+        "170x153"
+      ]
+    }
+  ],
+  "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE — NOT AN OFFICIAL MUNICIPAL RECORD"
+}

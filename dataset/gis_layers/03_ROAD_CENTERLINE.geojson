@@ -1,0 +1,24 @@
+{
+  "type": "FeatureCollection",
+  "name": "03_ROAD_CENTERLINE",
+  "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE — NOT AN OFFICIAL MUNICIPAL RECORD",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "R-001",
+        "road_name": "Road R-001 Centerline",
+        "start_chainage_m": 0.0,
+        "end_chainage_m": 85.0,
+        "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE — NOT AN OFFICIAL MUNICIPAL RECORD"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [24.5, 0.0],
+          [24.5, 85.0]
+        ]
+      }
+    }
+  ]
+}

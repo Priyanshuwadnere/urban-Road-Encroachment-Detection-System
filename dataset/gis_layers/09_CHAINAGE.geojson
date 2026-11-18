@@ -1,0 +1,72 @@
+{
+  "type": "FeatureCollection",
+  "name": "09_CHAINAGE",
+  "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE — NOT AN OFFICIAL MUNICIPAL RECORD",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "chainage_id": "CH-0+000",
+        "chainage_m": 0.0,
+        "chainage_label": "0+000",
+        "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE — NOT AN OFFICIAL MUNICIPAL RECORD"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.5, 0.0]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "chainage_id": "CH-0+020",
+        "chainage_m": 20.0,
+        "chainage_label": "0+020",
+        "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE — NOT AN OFFICIAL MUNICIPAL RECORD"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.5, 20.0]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "chainage_id": "CH-0+040",
+        "chainage_m": 40.0,
+        "chainage_label": "0+040",
+        "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE — NOT AN OFFICIAL MUNICIPAL RECORD"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.5, 40.0]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "chainage_id": "CH-0+060",
+        "chainage_m": 60.0,
+        "chainage_label": "0+060",
+        "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE — NOT AN OFFICIAL MUNICIPAL RECORD"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.5, 60.0]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "chainage_id": "CH-0+080",
+        "chainage_m": 80.0,
+        "chainage_label": "0+080",
+        "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE — NOT AN OFFICIAL MUNICIPAL RECORD"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.5, 80.0]
+      }
+    }
+  ]
+}

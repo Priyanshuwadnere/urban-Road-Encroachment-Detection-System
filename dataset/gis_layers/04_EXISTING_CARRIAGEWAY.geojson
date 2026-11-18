@@ -1,0 +1,28 @@
+{
+  "type": "FeatureCollection",
+  "name": "04_EXISTING_CARRIAGEWAY",
+  "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE — NOT AN OFFICIAL MUNICIPAL RECORD",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "carriageway_id": "CW-R001-01",
+        "road_name": "Road R-001 Paved Carriageway",
+        "paved_width_m": 6.0,
+        "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE — NOT AN OFFICIAL MUNICIPAL RECORD"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [21.5, 0.0],
+            [27.5, 0.0],
+            [27.5, 85.0],
+            [21.5, 85.0],
+            [21.5, 0.0]
+          ]
+        ]
+      }
+    }
+  ]
+}

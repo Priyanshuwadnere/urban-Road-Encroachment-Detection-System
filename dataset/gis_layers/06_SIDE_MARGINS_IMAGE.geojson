@@ -1,0 +1,83 @@
+{
+  "type": "FeatureCollection",
+  "name": "06_SIDE_MARGINS_IMAGE",
+  "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE \u2014 NOT AN OFFICIAL MUNICIPAL RECORD",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "margin_id": "FM-WEST-01",
+        "name": "West Side Footpath / Pedestrian Margin (1.5m)",
+        "corridor_side": "West",
+        "width_m": 1.5,
+        "surface_type": "Paved Pedestrian Walkway / Utility Margin",
+        "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE \u2014 NOT AN OFFICIAL MUNICIPAL RECORD"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              421.0,
+              723.0
+            ],
+            [
+              440.0,
+              723.0
+            ],
+            [
+              426.5,
+              0.0
+            ],
+            [
+              413.0,
+              0.0
+            ],
+            [
+              421.0,
+              723.0
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "margin_id": "FM-EAST-01",
+        "name": "East Side Footpath / Pedestrian Margin (1.5m)",
+        "corridor_side": "East",
+        "width_m": 1.5,
+        "surface_type": "Paved Pedestrian Walkway / Utility Margin",
+        "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE \u2014 NOT AN OFFICIAL MUNICIPAL RECORD"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              544.0,
+              723.0
+            ],
+            [
+              573.0,
+              723.0
+            ],
+            [
+              602.0,
+              0.0
+            ],
+            [
+              573.0,
+              0.0
+            ],
+            [
+              544.0,
+              723.0
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

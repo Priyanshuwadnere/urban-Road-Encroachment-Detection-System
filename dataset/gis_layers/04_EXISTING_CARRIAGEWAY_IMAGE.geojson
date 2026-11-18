@@ -1,0 +1,43 @@
+{
+  "type": "FeatureCollection",
+  "name": "04_EXISTING_CARRIAGEWAY_IMAGE",
+  "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE \u2014 NOT AN OFFICIAL MUNICIPAL RECORD",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "carriageway_id": "CW-R001-01",
+        "width_m": 6.0,
+        "surface_type": "Bituminous Paved Asphalt",
+        "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE \u2014 NOT AN OFFICIAL MUNICIPAL RECORD"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              440.0,
+              723.0
+            ],
+            [
+              544.0,
+              723.0
+            ],
+            [
+              573.0,
+              0.0
+            ],
+            [
+              426.5,
+              0.0
+            ],
+            [
+              440.0,
+              723.0
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

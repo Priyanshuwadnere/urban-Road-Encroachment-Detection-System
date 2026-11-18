@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Road Encroachment Detection System — Decision Support Dashboard</title>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="/frontend/styles.css?v=20261031_v7" />
+</head>
+<body>
+
+    <!-- Application Header -->
+    <header class="header">
+        <div class="header-brand">
+            <div class="header-brand-icon">
+                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/>
+                    <line x1="9" x2="9" y1="3" y2="18"/>
+                    <line x1="15" x2="15" y1="6" y2="21"/>
+                </svg>
+            </div>
+            <div class="header-title">
+                <h1>Urban Road Encroachment Detection System</h1>
+                <p>Computer Vision and GIS Decision-Support System</p>
+            </div>
+        </div>
+        <div class="header-actions">
+            <a href="/api/export/csv" class="btn btn-secondary" target="_blank" title="Export encroachment cases as CSV">
+                <svg viewBox="0 0 24 24">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" x2="12" y1="15" y2="3"/>
+                </svg>
+                Export CSV
+            </a>
+            <a href="/api/export/geojson" class="btn btn-secondary" target="_blank" title="Export encroachment layers as GeoJSON">
+                <svg viewBox="0 0 24 24">
+                    <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                    <polyline points="2 17 12 22 22 17"/>
+                    <polyline points="2 12 12 17 22 12"/>
+                </svg>
+                Export GeoJSON
+            </a>
+            <a href="/api/report" class="btn btn-primary" target="_blank" title="Generate comprehensive technical report">
+                <svg viewBox="0 0 24 24">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                    <line x1="16" x2="8" y1="13" y2="13"/>
+                    <line x1="16" x2="8" y1="17" y2="17"/>
+                    <polyline points="10 9 9 9 8 9"/>
+                </svg>
+                Generate Report
+            </a>
+        </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="nav-tabs" aria-label="Main Navigation">
+        <div class="tab-item active" onclick="switchTab('dashboard')" role="button" tabindex="0">
+            <svg viewBox="0 0 24 24">
+                <rect width="7" height="9" x="3" y="3" rx="1"/>
+                <rect width="7" height="5" x="14" y="3" rx="1"/>
+                <rect width="7" height="9" x="14" y="12" rx="1"/>
+                <rect width="7" height="5" x="3" y="16" rx="1"/>
+            </svg>
+            Overview
+        </div>
+        <div class="tab-item" onclick="switchTab('gis-map')" role="button" tabindex="0">
+            <svg viewBox="0 0 24 24">
+                <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/>
+                <line x1="9" x2="9" y1="3" y2="18"/>
+                <line x1="15" x2="15" y1="6" y2="21"/>
+            </svg>
+            GIS Map
+        </div>
+        <div class="tab-item" onclick="switchTab('cases-table')" role="button" tabindex="0">
+            <svg viewBox="0 0 24 24">
+                <path d="M9 11l3 3L22 4"/>
+                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+            </svg>
+            Encroachment Cases
+        </div>
+        <div class="tab-item" onclick="switchTab('model-ai')" role="button" tabindex="0">
+            <svg viewBox="0 0 24 24">
+                <path d="M3 3v18h18"/>
+                <path d="m19 9-5 5-4-4-3 3"/>
+            </svg>
+            Model Performance
+        </div>
+        <div class="tab-item" onclick="switchTab('ref-benchmark')" role="button" tabindex="0">
+            <svg viewBox="0 0 24 24">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+            Reference Benchmarks
+        </div>
+        <div class="tab-item" onclick="switchTab('property-view')" role="button" tabindex="0">
+            <svg viewBox="0 0 24 24">
+                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+            Properties
+        </div>
+        <div class="tab-item" onclick="switchTab('road-view')" role="button" tabindex="0">
+            <svg viewBox="0 0 24 24">
+                <path d="M4 19 8 5"/>
+                <path d="M16 5 20 19"/>
+                <line x1="12" x2="12" y1="7" y2="9"/>
+                <line x1="12" x2="12" y1="15" y2="17"/>
+            </svg>
+            Road Network
+        </div>
+        <div class="tab-item" onclick="switchTab('architecture')" role="button" tabindex="0">
+            <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="12" x2="12" y1="16" y2="12"/>
+                <line x1="12" x2="12.01" y1="8" y2="8"/>
+            </svg>
+            System Information
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <main class="container">
+
+        <!-- TAB 1: OVERVIEW DASHBOARD -->
+        <section id="tab-dashboard" class="tab-content active">
+            <div class="summary-grid">
+                <div class="card card-kpi-highlight">
+                    <div class="card-title">Study Area</div>
+                    <div class="card-value" id="sum-study-area">Synthetic Colony</div>
+                    <div class="card-subtitle">North-South Corridor</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Road ID</div>
+                    <div class="card-value" id="sum-road-id">Road R-001</div>
+                    <div class="card-subtitle">Station 0+000 to 0+085</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Road Length</div>
+                    <div class="card-value">85.0 m</div>
+                    <div class="card-subtitle">Linear Surveyed Sector</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Properties</div>
+                    <div class="card-value" id="sum-properties">10</div>
+                    <div class="card-subtitle">Parcels P-01 to P-10</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Legal ROW Width</div>
+                    <div class="card-value" id="sum-row-width">9.00 m</div>
+                    <div class="card-subtitle">Statutory Corridor Boundary</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Paved Carriageway</div>
+                    <div class="card-value" id="sum-carriageway">6.00 m</div>
+                    <div class="card-subtitle">Side Margins: 1.50 m each</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Physical Detections</div>
+                    <div class="card-value" id="sum-detections">2</div>
+                    <div class="card-subtitle">Candidate Segmentations</div>
+                </div>
+                <div class="card card-kpi-warning">
+                    <div class="card-title">Potential Encroachments</div>
+                    <div class="card-value" id="sum-cases" style="color: var(--warning);">2</div>
+                    <div class="card-subtitle">Verified Overlap Cases</div>
+                </div>
+                <div class="card card-kpi-danger">
+                    <div class="card-title">Total Encroached Area</div>
+                    <div class="card-value" id="sum-area">9.60 m²</div>
+                    <div class="card-subtitle">E-01: 6.00 m² | E-02: 3.60 m²</div>
+                </div>
+            </div>
+
+            <!-- Spatial Analysis Workflow Panel -->
+            <div class="workflow-panel">
+                <div class="section-title">
+                    <svg viewBox="0 0 24 24">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                        <polyline points="2 17 12 22 22 17"/>
+                        <polyline points="2 12 12 17 22 12"/>
+                    </svg>
+                    Spatial Analysis Workflow
+                </div>
+                <div class="math-box">
+                    <strong>OUTSIDE_PRIVATE</strong> = DETECTED_STRUCTURE − LEGAL_PROPERTY_BOUNDARY<br>
+                    <strong>POTENTIAL_ENCROACHMENT</strong> = OUTSIDE_PRIVATE ∩ GOVERNMENT_ROAD_ROW
+                </div>
+                <p class="workflow-description">
+                    The framework formally decouples <strong>Computer Vision Physical Segmentation</strong> from <strong>Cadastral Vector Set Algebra</strong>. An awning, ramp, or shed is a lawful architectural feature when constructed within a private property setback, but becomes an illegal statutory violation when projecting across the cadastral property line into the municipal Road Right-of-Way. The system identifies physical boundaries using instance segmentation and determines compliance downstream via exact geometric set operations.
+                </p>
+            </div>
+        </section>
+
+        <!-- TAB 2: INTERACTIVE GIS MAP WORKSPACE -->
+        <section id="tab-gis-map" class="tab-content">
+            <!-- Map View Mode Toolbar -->
+            <div class="map-toolbar">
+                <div class="btn-group">
+                    <span class="toolbar-label">View Mode:</span>
+                    <button id="btn-mode-drone" class="btn-toggle active" onclick="setMapMode('drone')" title="Aerial UAV Survey Frame Alignment">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/>
+                            <circle cx="12" cy="13" r="3"/>
+                        </svg>
+                        Survey Alignment View
+                    </button>
+                    <button id="btn-mode-vector" class="btn-toggle" onclick="setMapMode('vector')" title="Vector Cadastral CAD Coordinate Frame">
+                        <svg viewBox="0 0 24 24">
+                            <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/>
+                            <line x1="9" x2="9" y1="3" y2="18"/>
+                            <line x1="15" x2="15" y1="6" y2="21"/>
+                        </svg>
+                        Vector Cadastral View
+                    </button>
+                    <button id="btn-mode-split" class="btn-toggle" onclick="setMapMode('split')" title="Dual Side-by-Side Verification">
+                        <svg viewBox="0 0 24 24">
+                            <rect width="18" height="18" x="3" y="3" rx="2"/>
+                            <line x1="12" x2="12" y1="3" y2="21"/>
+                        </svg>
+                        Side-by-Side Comparison
+                    </button>
+                </div>
+                <div class="btn-group">
+                    <span class="toolbar-label">Focus Case:</span>
+                    <button class="btn btn-secondary btn-sm" onclick="focusEncroachment('ENC-4A8C13E2')">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
+                        E-01 (P-07: 6.00 m²)
+                    </button>
+                    <button class="btn btn-secondary btn-sm" onclick="focusEncroachment('ENC-FFF7E662')">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
+                        E-02 (P-08: 3.60 m²)
+                    </button>
+                    <button class="btn btn-secondary btn-sm" onclick="resetMapView()">
+                        <svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M3 21v-5h5"/></svg>
+                        Reset Map Extent
+                    </button>
+                </div>
+            </div>
+
+            <!-- Two-Column Map Workspace (72% Map / 28% Sidebar) -->
+            <div id="map-layout-container" class="map-layout">
+                <div id="leaflet-map-wrapper">
+                    <div id="leaflet-map"></div>
+                </div>
+
+                <div id="vector-map-wrapper" style="display: none;">
+                    <div id="vector-map"></div>
+                </div>
+
+                <!-- Inspection and Layer Sidebar -->
+                <aside class="map-sidebar">
+                    <div class="section-header">
+                        <div class="sidebar-title">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="10"/>
+                                <line x1="12" x2="12" y1="16" y2="12"/>
+                                <line x1="12" x2="12.01" y1="8" y2="8"/>
+                            </svg>
+                            Encroachment Inspection
+                        </div>
+                        <button id="btn-reset-sidebar" class="btn btn-secondary btn-sm" style="display:none;" onclick="renderDefaultSidebar()">
+                            Overview
+                        </button>
+                    </div>
+
+                    <!-- Dynamic Feature Inspection Box -->
+                    <div id="sidebar-detail" class="feature-detail-box">
+                        <!-- Populated by JavaScript -->
+                    </div>
+
+                    <!-- Collapsible Layer Groups -->
+                    <div>
+                        <div class="layer-group">
+                            <div class="layer-group-header" onclick="toggleLayerGroup('group-base')">
+                                <span>Base Imagery</span>
+                                <span id="group-base-toggle">−</span>
+                            </div>
+                            <div id="group-base" class="layer-group-body">
+                                <label class="layer-item">
+                                    <input type="radio" name="baseLayerRadio" checked onchange="switchBaseLayer('clean')">
+                                    Clean Survey Image
+                                </label>
+                                <label class="layer-item">
+                                    <input type="radio" name="baseLayerRadio" onchange="switchBaseLayer('annotated')">
+                                    Survey with Reference Markings
+                                </label>
+                                <label class="layer-item">
+                                    <input type="radio" name="baseLayerRadio" onchange="switchBaseLayer('neutral')">
+                                    Vector-Only Background
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="layer-group">
+                            <div class="layer-group-header" onclick="toggleLayerGroup('group-ref')">
+                                <span>Reference Geometry</span>
+                                <span id="group-ref-toggle">−</span>
+                            </div>
+                            <div id="group-ref" class="layer-group-body">
+                                <label class="layer-item">
+                                    <input type="checkbox" id="chk-parcels" checked onchange="toggleMapLayer('parcels')">
+                                    Cadastral Property Boundaries
+                                </label>
+                                <label class="layer-item">
+                                    <input type="checkbox" id="chk-row" checked onchange="toggleMapLayer('row')">
+                                    Legal Road ROW (9.00 m)
+                                </label>
+                                <label class="layer-item">
+                                    <input type="checkbox" id="chk-footpaths" checked onchange="toggleMapLayer('footpaths')">
+                                    Footpaths (1.50 m margins)
+                                </label>
+                                <label class="layer-item">
+                                    <input type="checkbox" id="chk-carriageway" checked onchange="toggleMapLayer('carriageway')">
+                                    Paved Carriageway (6.00 m)
+                                </label>
+                                <label class="layer-item">
+                                    <input type="checkbox" id="chk-centerline" checked onchange="toggleMapLayer('centerline')">
+                                    Road Centerline and Chainage
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="layer-group">
+                            <div class="layer-group-header" onclick="toggleLayerGroup('group-analysis')">
+                                <span>Analysis Overlays</span>
+                                <span id="group-analysis-toggle">−</span>
+                            </div>
+                            <div id="group-analysis" class="layer-group-body">
+                                <label class="layer-item">
+                                    <input type="checkbox" id="chk-benchmarks" checked onchange="toggleMapLayer('benchmarks')">
+                                    Synthetic Reference Benchmarks (E-01, E-02)
+                                </label>
+                                <label class="layer-item">
+                                    <input type="checkbox" id="chk-yolo" checked onchange="toggleMapLayer('yolo')">
+                                    YOLO Instance-Segmentation Predictions
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Clean Map Legend -->
+                    <div class="map-legend">
+                        <div class="legend-title">Symbology Legend</div>
+                        <div class="legend-grid">
+                            <div class="legend-item">
+                                <div class="legend-swatch" style="background: rgba(30, 58, 138, 0.15); border-color: #1e3a8a;"></div>
+                                <span>Cadastral Lots (P-01 to P-10)</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-line" style="border-color: #eab308; border-width: 2px;"></div>
+                                <span>Legal Road ROW (9.00 m)</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-line" style="border-color: #ef4444; border-width: 2px;"></div>
+                                <span>Paved Carriageway (6.00 m)</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-line" style="border-color: #06b6d4; border-style: dashed;"></div>
+                                <span>Pedestrian Footpaths (1.50 m)</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-line" style="border-color: #22c55e; border-style: dashed;"></div>
+                                <span>Centerline &amp; Chainage</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-swatch" style="background: rgba(185, 28, 28, 0.45); border-color: #b91c1c;"></div>
+                                <span>Encroachment Benchmark (E-01/E-02)</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-swatch" style="background: rgba(6, 182, 212, 0.3); border-color: #0891b2;"></div>
+                                <span>YOLO Prediction Footprint</span>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <!-- TAB 3: ENCROACHMENT CASES TABLE -->
+        <section id="tab-cases-table" class="tab-content">
+            <div class="table-container">
+                <div class="filter-bar">
+                    <input type="text" id="filter-search" class="filter-input" placeholder="Search by Case ID, Parcel, or Structure..." oninput="applyFilters()">
+                    <select id="filter-property" class="filter-select" onchange="applyFilters()">
+                        <option value="">All Properties</option>
+                        <option value="P-07">Parcel P-07 (Shanti Heights)</option>
+                        <option value="P-08">Parcel P-08 (Surya Electricals)</option>
+                    </select>
+                    <select id="filter-severity" class="filter-select" onchange="applyFilters()">
+                        <option value="">All Severities</option>
+                        <option value="HIGH">HIGH</option>
+                        <option value="MODERATE">MODERATE</option>
+                    </select>
+                    <select id="filter-provenance" class="filter-select" onchange="applyFilters()">
+                        <option value="">All Provenance</option>
+                        <option value="SYNTHETIC_GIS_REFERENCE_BENCHMARK">Synthetic GIS Benchmark</option>
+                        <option value="YOLO_MODEL_PREDICTION">YOLO Prediction</option>
+                    </select>
+                </div>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Case ID</th>
+                            <th>Parcel ID</th>
+                            <th>Structure Class</th>
+                            <th>Data Provenance</th>
+                            <th class="td-num">Area (m²)</th>
+                            <th class="td-num">Depth (m)</th>
+                            <th class="td-num">Frontage (m)</th>
+                            <th>Chainage</th>
+                            <th class="td-num">Confidence</th>
+                            <th>Severity</th>
+                            <th>Required Action</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-cases-body">
+                        <!-- Populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- TAB 4: MODEL PERFORMANCE -->
+        <section id="tab-model-ai" class="tab-content">
+            <div class="card" style="margin-bottom: 20px;">
+                <div class="section-title">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M3 3v18h18"/>
+                        <path d="m19 9-5 5-4-4-3 3"/>
+                    </svg>
+                    YOLOv8n-seg Baseline Performance Metrics
+                </div>
+                <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 14px;">
+                    Model evaluated strictly on held-out test sequence <code>R001_SEQ03</code> (30 images, 185 annotated instances) using random seed 42.
+                </p>
+                <table class="data-table" style="max-width: 640px; margin-bottom: 16px;">
+                    <thead>
+                        <tr>
+                            <th>Evaluation Metric</th>
+                            <th class="td-num">Metric Value</th>
+                            <th>Standard Benchmark Meaning</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Precision (P)</td>
+                            <td class="td-num"><strong>0.885</strong></td>
+                            <td>Ratio of correctly identified positive segmentations</td>
+                        </tr>
+                        <tr>
+                            <td>Recall (R)</td>
+                            <td class="td-num"><strong>0.842</strong></td>
+                            <td>Ratio of ground-truth structures successfully detected</td>
+                        </tr>
+                        <tr>
+                            <td>F1 Score</td>
+                            <td class="td-num"><strong>0.863</strong></td>
+                            <td>Harmonic mean of precision and recall</td>
+                        </tr>
+                        <tr>
+                            <td>mAP @ 0.50</td>
+                            <td class="td-num"><strong>0.891</strong></td>
+                            <td>Mean Average Precision at IoU threshold 0.50</td>
+                        </tr>
+                        <tr>
+                            <td>mAP @ 0.50–0.95</td>
+                            <td class="td-num"><strong>0.654</strong></td>
+                            <td>Mean Average Precision averaged over IoU 0.50 to 0.95</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div style="background-color: var(--neutral-50); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px 16px; font-size: 12.5px; color: var(--text-secondary);">
+                    <strong style="color: var(--neutral-900);">Verified Model Classes:</strong> <code>building</code> (class 0), <code>ramp</code> (class 5), <code>compound_wall</code> (class 7).<br>
+                    <span style="color: var(--warning); font-weight: 500;">Unverified Classes Notice:</span> Classes <code>staircase</code>, <code>shop_extension</code>, <code>veranda</code>, <code>shed</code>, and <code>awning</code> have 0 verified training instances in the baseline dataset and require high-resolution aerial survey frames for operational inference.
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="section-title">
+                    <svg viewBox="0 0 24 24">
+                        <rect width="18" height="18" x="3" y="3" rx="2"/>
+                        <circle cx="8.5" cy="8.5" r="1.5"/>
+                        <polyline points="21 15 16 10 5 21"/>
+                    </svg>
+                    YOLO Visual Prediction Overlays
+                </div>
+                <div class="gallery-grid" id="predictions-gallery">
+                    <!-- Populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 5: REFERENCE BENCHMARKS -->
+        <section id="tab-ref-benchmark" class="tab-content">
+            <div class="card">
+                <div class="section-title">
+                    <svg viewBox="0 0 24 24">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                    </svg>
+                    Synthetic GIS Reference Benchmarks (E-01 &amp; E-02)
+                </div>
+                <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 16px;">
+                    Cases E-01 and E-02 are <strong>synthetic GIS reference benchmark geometries</strong> established to validate the computational geometry engine, inverse affine homography, and vector set algebra algorithms. They serve as deterministic ground-truth controls.
+                </p>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Benchmark Case</th>
+                            <th>Parcel ID</th>
+                            <th>Structure Concept</th>
+                            <th class="td-num">Encroached Area (m²)</th>
+                            <th class="td-num">Max Projection Depth (m)</th>
+                            <th class="td-num">Frontage Width (m)</th>
+                            <th>Perpendicular Chainage</th>
+                            <th>Data Provenance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>E-01</strong></td>
+                            <td>P-07</td>
+                            <td>Awning / shop-side canopy extension</td>
+                            <td class="td-num"><strong>6.00 m²</strong></td>
+                            <td class="td-num">1.20 m</td>
+                            <td class="td-num">5.00 m</td>
+                            <td>0+011.0</td>
+                            <td><span class="badge badge-ref">Synthetic GIS Benchmark</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>E-02</strong></td>
+                            <td>P-08</td>
+                            <td>Shop extension / veranda shed</td>
+                            <td class="td-num"><strong>3.60 m²</strong></td>
+                            <td class="td-num">0.80 m</td>
+                            <td class="td-num">4.50 m</td>
+                            <td>0+023.3</td>
+                            <td><span class="badge badge-ref">Synthetic GIS Benchmark</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div style="margin-top: 14px; font-weight: 600; font-size: 13px; color: var(--neutral-800); border-top: 1px solid var(--border); padding-top: 10px;">
+                    Total Benchmark Encroached Area: <strong>9.60 m²</strong> (6.00 m² + 3.60 m²)
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 6: PROPERTY EXPLORER -->
+        <section id="tab-property-view" class="tab-content">
+            <div class="card">
+                <div class="section-title">
+                    <svg viewBox="0 0 24 24">
+                        <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                        <polyline points="9 22 9 12 15 12 15 22"/>
+                    </svg>
+                    Cadastral Property Parcels Explorer
+                </div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>House No. &amp; Parcel</th>
+                            <th>Owner / Commercial Name</th>
+                            <th>Municipal Street Address</th>
+                            <th class="td-num">Parcel Area (m²)</th>
+                            <th>Road Frontage</th>
+                            <th>Encroachment Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="property-table-body">
+                        <!-- Populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- TAB 7: ROAD EXPLORER -->
+        <section id="tab-road-view" class="tab-content">
+            <div class="card">
+                <div class="section-title">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M4 19 8 5"/>
+                        <path d="M16 5 20 19"/>
+                        <line x1="12" x2="12" y1="7" y2="9"/>
+                        <line x1="12" x2="12" y1="15" y2="17"/>
+                    </svg>
+                    Road R-001 Master Corridor Explorer
+                </div>
+                <table class="data-table" style="max-width: 680px; margin-top: 12px;">
+                    <tbody>
+                        <tr><th style="width: 35%;">Road Identification</th><td>Road R-001 Urban Corridor</td></tr>
+                        <tr><th>Linear Length</th><td>85.0 meters</td></tr>
+                        <tr><th>Statutory ROW Width</th><td>9.00 meters (Controlling Corridor Line)</td></tr>
+                        <tr><th>Paved Carriageway Width</th><td>6.00 meters (Central Vehicular Roadway)</td></tr>
+                        <tr><th>Pedestrian Margins</th><td>1.50 meters on each side (East and West)</td></tr>
+                        <tr><th>Station Chainage Range</th><td>Station 0+000.0 to 0+085.0</td></tr>
+                        <tr><th>Potential Encroachment Cases</th><td>2 Active Cases (E-01 at station 0+011.0, E-02 at station 0+023.3)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- TAB 8: SYSTEM INFORMATION -->
+        <section id="tab-architecture" class="tab-content">
+            <div class="card" style="margin-bottom: 20px;">
+                <div class="section-title">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="12" x2="12" y1="16" y2="12"/>
+                        <line x1="12" x2="12.01" y1="8" y2="8"/>
+                    </svg>
+                    System Architecture &amp; Processing Pipeline
+                </div>
+                <div class="math-box" style="font-family: inherit; font-size: 13px; line-height: 1.8;">
+                    <strong>1. DRONE REMOTE SENSING</strong> &rarr; Aerial nadir photogrammetric survey frame (1024 &times; 723 px, GSD &approx; 5 cm/px)<br>
+                    <strong>2. INSTANCE SEGMENTATION</strong> &rarr; Edge-optimized YOLOv8n-seg predicts physical structure polygons (S_px)<br>
+                    <strong>3. COORDINATE REGISTRATION</strong> &rarr; Inverse affine homography transformation A &isin; &real;&sup3;&sup;&sup3; maps contours to metric GIS frame<br>
+                    <strong>4. SPATIAL SET ALGEBRA</strong> &rarr; OUTSIDE_PRIVATE = S \ P and POTENTIAL_ENCROACHMENT = O &cap; R_ROW<br>
+                    <strong>5. MUNICIPAL ATTRIBUTION</strong> &rarr; Centerline projection computes Station (0+0XX.X), Lateral Depth (m), Frontage (m)<br>
+                    <strong>6. DECISION SUPPORT &amp; REPORTING</strong> &rarr; Generates audit-ready Municipal Encroachment Notices &amp; Technical Dossiers
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="section-title">
+                    <svg viewBox="0 0 24 24">
+                        <polyline points="16 18 22 12 16 6"/>
+                        <polyline points="8 6 2 12 8 18"/>
+                    </svg>
+                    Core REST API Endpoints
+                </div>
+                <table class="data-table" style="margin-top: 12px;">
+                    <thead>
+                        <tr>
+                            <th>HTTP Method</th>
+                            <th>Endpoint Path</th>
+                            <th>Description</th>
+                            <th>Output Format</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>GET</code></td><td><code>/api/health</code></td><td>System health status &amp; runtime environment</td><td>JSON</td></tr>
+                        <tr><td><code>GET</code></td><td><code>/api/summary</code></td><td>Corridor metrics &amp; aggregate encroachment counts</td><td>JSON</td></tr>
+                        <tr><td><code>GET</code></td><td><code>/api/properties</code></td><td>10 cadastral land parcel boundary records</td><td>JSON</td></tr>
+                        <tr><td><code>GET</code></td><td><code>/api/roads</code></td><td>Road R-001 ROW corridor &amp; centerline reference</td><td>JSON</td></tr>
+                        <tr><td><code>GET</code></td><td><code>/api/encroachments</code></td><td>Filterable encroachment records list</td><td>JSON</td></tr>
+                        <tr><td><code>GET</code></td><td><code>/api/encroachments/{case_id}</code></td><td>Detailed encroachment record by ID or alias</td><td>JSON</td></tr>
+                        <tr><td><code>GET</code></td><td><code>/api/report</code></td><td>Full corridor technical evaluation dossier</td><td>HTML / PDF</td></tr>
+                        <tr><td><code>GET</code></td><td><code>/api/report/{case_id}</code></td><td>Statutory municipal encroachment notice</td><td>HTML / PDF</td></tr>
+                        <tr><td><code>GET</code></td><td><code>/api/export/csv</code></td><td>Download encroachment cases in CSV format</td><td>CSV File</td></tr>
+                        <tr><td><code>GET</code></td><td><code>/api/export/geojson</code></td><td>Download vector encroachment geometries</td><td>GeoJSON File</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Case Details Modal -->
+    <div id="case-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-case-title">Case Details</h3>
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+            </div>
+            <div id="modal-body-content">
+                <!-- Populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Leaflet & App JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="/frontend/app.js?v=20261031_v8"></script>
+</body>
+</html>

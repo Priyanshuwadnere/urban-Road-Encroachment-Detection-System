@@ -1,0 +1,13 @@
+names:
+  0: building
+  1: staircase
+  2: shop_extension
+  3: veranda
+  4: shed
+  5: ramp
+  6: awning
+  7: compound_wall
+path: e:/Urban Road Encroachment Detection System/dataset
+test: images/test
+train: images/train
+val: images/val

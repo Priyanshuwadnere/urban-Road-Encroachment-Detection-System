@@ -1,0 +1,106 @@
+{
+  "total_images_audited": 90,
+  "total_annotations_audited": 551,
+  "status_counts": {
+    "VERIFIED": 442,
+    "QUESTIONABLE": 65,
+    "REQUIRES MANUAL REVIEW": 44
+  },
+  "potential_annotation_errors": 109,
+  "class_confusion_cases": 0,
+  "geometry_issues": 0,
+  "missing_object_cases": 0,
+  "false_object_cases": 0,
+  "manual_review_cases": 44,
+  "critical_issues": 0,
+  "per_class_audit": {
+    "0": {
+      "class_name": "building",
+      "total_count": 360,
+      "verified_count": 360,
+      "questionable_count": 0,
+      "manual_review_count": 0,
+      "rejection_reasons": []
+    },
+    "1": {
+      "class_name": "staircase",
+      "total_count": 11,
+      "verified_count": 0,
+      "questionable_count": 0,
+      "manual_review_count": 11,
+      "rejection_reasons": [
+        "Low frame resolution (171x136). staircase structural boundary contains pixel-level uncertainty and requires manual human review.",
+        "Low frame resolution (170x137). staircase structural boundary contains pixel-level uncertainty and requires manual human review.",
+        "Low frame resolution (171x137). staircase structural boundary contains pixel-level uncertainty and requires manual human review.",
+        "Low frame resolution (170x136). staircase structural boundary contains pixel-level uncertainty and requires manual human review."
+      ]
+    },
+    "2": {
+      "class_name": "shop_extension",
+      "total_count": 11,
+      "verified_count": 0,
+      "questionable_count": 0,
+      "manual_review_count": 11,
+      "rejection_reasons": [
+        "Low frame resolution (171x154). shop_extension structural boundary contains pixel-level uncertainty and requires manual human review.",
+        "Low frame resolution (170x154). shop_extension structural boundary contains pixel-level uncertainty and requires manual human review.",
+        "Low frame resolution (171x153). shop_extension structural boundary contains pixel-level uncertainty and requires manual human review."
+      ]
+    },
+    "3": {
+      "class_name": "veranda",
+      "total_count": 11,
+      "verified_count": 0,
+      "questionable_count": 0,
+      "manual_review_count": 11,
+      "rejection_reasons": [
+        "Low frame resolution (171x137). veranda structural boundary contains pixel-level uncertainty and requires manual human review.",
+        "Low frame resolution (170x137). veranda structural boundary contains pixel-level uncertainty and requires manual human review.",
+        "Low frame resolution (171x136). veranda structural boundary contains pixel-level uncertainty and requires manual human review.",
+        "Low frame resolution (170x136). veranda structural boundary contains pixel-level uncertainty and requires manual human review."
+      ]
+    },
+    "4": {
+      "class_name": "shed",
+      "total_count": 27,
+      "verified_count": 22,
+      "questionable_count": 5,
+      "manual_review_count": 0,
+      "rejection_reasons": [
+        "shed polygon touches frame border; potential background overlap."
+      ]
+    },
+    "5": {
+      "class_name": "ramp",
+      "total_count": 60,
+      "verified_count": 60,
+      "questionable_count": 0,
+      "manual_review_count": 0,
+      "rejection_reasons": []
+    },
+    "6": {
+      "class_name": "awning",
+      "total_count": 11,
+      "verified_count": 0,
+      "questionable_count": 0,
+      "manual_review_count": 11,
+      "rejection_reasons": [
+        "Low frame resolution (170x154). awning structural boundary contains pixel-level uncertainty and requires manual human review.",
+        "Low frame resolution (171x154). awning structural boundary contains pixel-level uncertainty and requires manual human review.",
+        "Low frame resolution (171x153). awning structural boundary contains pixel-level uncertainty and requires manual human review."
+      ]
+    },
+    "7": {
+      "class_name": "compound_wall",
+      "total_count": 60,
+      "verified_count": 0,
+      "questionable_count": 60,
+      "manual_review_count": 0,
+      "rejection_reasons": [
+        "compound_wall polygon touches frame border; potential background overlap."
+      ]
+    }
+  },
+  "honest_provenance_statement": "HONEST AUDIT STATEMENT: The 551 polygon annotations were generated programmatically using chainage sequence template rules. Because individual frames are 170x153 resolution tiles extracted from storyboard montages, fine contour tracing for small structures (staircase, shop_extension, veranda, awning) contains spatial resolution uncertainty and requires human manual review prior to model training.",
+  "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE \u2014 NOT AN OFFICIAL MUNICIPAL RECORD"
+}

@@ -1,0 +1,17 @@
+# Urban Road Encroachment Detection System - Baseline YOLO Segmentation Dataset Configuration
+# EXPERIMENT A — VERIFIED BASELINE PHYSICAL STRUCTURE MODEL
+# SYNTHETIC ACADEMIC PROTOTYPE — NOT AN OFFICIAL MUNICIPAL RECORD
+
+path: e:/Urban Road Encroachment Detection System/dataset
+train: images/train
+val: images/val
+test: images/test
+
+# Verified physical structure classes (Classes with approved/corrected ground-truth ONLY)
+names:
+  0: building
+  5: ramp
+  7: compound_wall
+
+# Academic Disclaimer
+disclaimer: "SYNTHETIC / ACADEMIC PROTOTYPE — NOT AN OFFICIAL MUNICIPAL RECORD"

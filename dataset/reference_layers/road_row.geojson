@@ -1,0 +1,28 @@
+{
+  "type": "FeatureCollection",
+  "name": "government_road_row",
+  "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE — NOT AN OFFICIAL MUNICIPAL RECORD",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "row_id": "ROW-MAIN-LANE-01",
+        "road_name": "Municipal Main Residential Lane",
+        "legal_width_m": 8.0,
+        "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE — NOT AN OFFICIAL MUNICIPAL RECORD"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [20.0, 0.0],
+            [28.0, 0.0],
+            [28.0, 100.0],
+            [20.0, 100.0],
+            [20.0, 0.0]
+          ]
+        ]
+      }
+    }
+  ]
+}

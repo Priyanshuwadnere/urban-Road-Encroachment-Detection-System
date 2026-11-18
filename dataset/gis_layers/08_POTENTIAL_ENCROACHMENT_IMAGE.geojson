@@ -1,0 +1,115 @@
+{
+  "type": "FeatureCollection",
+  "name": "08_POTENTIAL_ENCROACHMENT_IMAGE",
+  "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE \u2014 NOT AN OFFICIAL MUNICIPAL RECORD",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "case_id": "ENC-4A8C13E2",
+        "benchmark_id": "E-01",
+        "detection_id": "REF-BENCHMARK-E01",
+        "class_name": "awning / shop-side canopy extension",
+        "structure_concept": "awning / shop-side canopy extension",
+        "data_provenance": "SYNTHETIC_GIS_REFERENCE_BENCHMARK",
+        "parcel_id": "P-07",
+        "row_id": "ROW-R001-01",
+        "status": "POTENTIAL ROAD ROW ENCROACHMENT",
+        "encroachment_type": "FOOTPATH_OBSTRUCTION",
+        "action_required": "FIELD VERIFICATION REQUIRED",
+        "severity": "HIGH",
+        "chainage_str": "0+011.0",
+        "encroachment_zone": "FOOTPATH",
+        "corridor_position": "East Footpath (between Yellow & Red lines, projecting towards Paved Road)",
+        "area_sqm": 6.0,
+        "frontage_m": 5.0,
+        "max_projection_m": 1.2,
+        "footpath_obstruction_pct": 80.0,
+        "spatial_justification": "Awning projects 1.20m past property line (Yellow Line) into the 1.50m pedestrian footpath towards the paved road edge, blocking 80% of pedestrian walkway.",
+        "confidence": 1.0,
+        "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE \u2014 NOT AN OFFICIAL MUNICIPAL RECORD"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              555.4,
+              593.0
+            ],
+            [
+              559.2,
+              498.0
+            ],
+            [
+              582.0,
+              498.0
+            ],
+            [
+              578.2,
+              593.0
+            ],
+            [
+              555.4,
+              593.0
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "case_id": "ENC-FFF7E662",
+        "benchmark_id": "E-02",
+        "detection_id": "REF-BENCHMARK-E02",
+        "class_name": "shop_extension / veranda shed",
+        "structure_concept": "shop_extension / veranda shed",
+        "data_provenance": "SYNTHETIC_GIS_REFERENCE_BENCHMARK",
+        "parcel_id": "P-08",
+        "row_id": "ROW-R001-01",
+        "status": "POTENTIAL ROAD ROW ENCROACHMENT",
+        "encroachment_type": "FOOTPATH_OBSTRUCTION",
+        "action_required": "FIELD VERIFICATION REQUIRED",
+        "severity": "MEDIUM",
+        "chainage_str": "0+023.3",
+        "encroachment_zone": "FOOTPATH",
+        "corridor_position": "East Footpath (between Yellow & Red lines, projecting towards Paved Road)",
+        "area_sqm": 3.6,
+        "frontage_m": 4.5,
+        "max_projection_m": 0.8,
+        "footpath_obstruction_pct": 53.3,
+        "spatial_justification": "Veranda shed projects 0.80m past property line (Yellow Line) into the 1.50m pedestrian footpath towards the paved road edge, blocking 53% of pedestrian walkway.",
+        "confidence": 1.0,
+        "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE \u2014 NOT AN OFFICIAL MUNICIPAL RECORD"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              568.3,
+              461.0
+            ],
+            [
+              571.7,
+              375.5
+            ],
+            [
+              586.9,
+              375.5
+            ],
+            [
+              583.5,
+              461.0
+            ],
+            [
+              568.3,
+              461.0
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

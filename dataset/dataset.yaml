@@ -1,0 +1,21 @@
+# Urban Road Encroachment Detection System - YOLO Segmentation Dataset Configuration
+# SYNTHETIC ACADEMIC PROTOTYPE DATASET — NOT AN OFFICIAL MUNICIPAL RECORD
+
+path: e:/Urban Road Encroachment Detection System/dataset
+train: images/train
+val: images/val
+test: images/test
+
+# Physical structure classes (0 to 7 ONLY - NO 'encroachment' class)
+names:
+  0: building
+  1: staircase
+  2: shop_extension
+  3: veranda
+  4: shed
+  5: ramp
+  6: awning
+  7: compound_wall
+
+# Academic Disclaimer
+disclaimer: "SYNTHETIC / ACADEMIC PROTOTYPE — NOT AN OFFICIAL MUNICIPAL RECORD"

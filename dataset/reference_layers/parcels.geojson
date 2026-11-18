@@ -1,0 +1,70 @@
+{
+  "type": "FeatureCollection",
+  "name": "cadastral_parcels",
+  "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE — NOT AN OFFICIAL MUNICIPAL RECORD",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-W-101",
+        "owner_name_synthetic": "Shree Sai Commercial Stores (Synthetic)",
+        "address_synthetic": "Plot 101, Residential Lane West, Ward 4",
+        "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE — NOT AN OFFICIAL MUNICIPAL RECORD"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [0.0, 40.0],
+            [20.0, 40.0],
+            [20.0, 60.0],
+            [0.0, 60.0],
+            [0.0, 40.0]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-E-201",
+        "owner_name_synthetic": "Veranda Res. Owner (Synthetic)",
+        "address_synthetic": "Plot 201, Residential Lane East, Ward 4",
+        "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE — NOT AN OFFICIAL MUNICIPAL RECORD"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [28.0, 40.0],
+            [50.0, 40.0],
+            [50.0, 60.0],
+            [28.0, 60.0],
+            [28.0, 40.0]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-W-102",
+        "owner_name_synthetic": "Permissible Building Owner (Synthetic)",
+        "address_synthetic": "Plot 102, Residential Lane West, Ward 4",
+        "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE — NOT AN OFFICIAL MUNICIPAL RECORD"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [0.0, 10.0],
+            [20.0, 10.0],
+            [20.0, 35.0],
+            [0.0, 35.0],
+            [0.0, 10.0]
+          ]
+        ]
+      }
+    }
+  ]
+}

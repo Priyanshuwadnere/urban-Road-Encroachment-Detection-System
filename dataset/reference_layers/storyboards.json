@@ -1,0 +1,46 @@
+{
+  "asset_type": "STORYBOARD_REFERENCE",
+  "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE — NOT AN OFFICIAL MUNICIPAL RECORD",
+  "description": "Reference storyboard montages illustrating temporal drone flight progression, 2m frame chainage, and road coverage continuity.",
+  "usage_rules": {
+    "is_ml_input": false,
+    "is_training_data": false,
+    "allow_crop_splitting": false,
+    "allow_fake_label_generation": false
+  },
+  "chainage_convention": {
+    "step_size_meters": 2.0,
+    "frames_per_sequence": 30,
+    "total_sequence_distance_meters": 60.0,
+    "naming_pattern": "R{road_id:03d}_SEQ{seq_id:02d}_FRAME{frame_id:03d}.jpg"
+  },
+  "storyboard_sequences": [
+    {
+      "sequence_id": "SEQ-01",
+      "road_id": "R001",
+      "title": "Sequence 01 (Frames 01-30, 2m to 60m Chainage)",
+      "file_path": "C:/Users/hp/.gemini/antigravity/brain/32d7f329-ebbd-4c66-94f7-cb10b2330be6/.user_uploaded/media_1789068979362.jpg",
+      "total_frames": 30,
+      "start_chainage_m": 2.0,
+      "end_chainage_m": 60.0
+    },
+    {
+      "sequence_id": "SEQ-02",
+      "road_id": "R001",
+      "title": "Sequence 02 (Frames 01-30, 2m to 60m Chainage)",
+      "file_path": "C:/Users/hp/.gemini/antigravity/brain/32d7f329-ebbd-4c66-94f7-cb10b2330be6/.user_uploaded/media_1789068979377.jpg",
+      "total_frames": 30,
+      "start_chainage_m": 2.0,
+      "end_chainage_m": 60.0
+    },
+    {
+      "sequence_id": "SEQ-03",
+      "road_id": "R001",
+      "title": "Sequence 03 (Frames 01-30, 2m to 60m Chainage)",
+      "file_path": "C:/Users/hp/.gemini/antigravity/brain/32d7f329-ebbd-4c66-94f7-cb10b2330be6/.user_uploaded/media_1789068979394.jpg",
+      "total_frames": 30,
+      "start_chainage_m": 2.0,
+      "end_chainage_m": 60.0
+    }
+  ]
+}

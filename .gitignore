@@ -1,0 +1,31 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+*.cache
+
+# Testing & Linting
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual Environments
+.venv/
+venv/
+env/
+ENV/
+
+# IDE & OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Scratch and temporary work
+scratch/
+*.bak
+*.tmp
+
+# YOLO Dataset label caches
+dataset/labels/*.cache
+runs/segment/

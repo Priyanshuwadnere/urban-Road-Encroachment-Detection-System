@@ -1,0 +1,28 @@
+{
+  "type": "FeatureCollection",
+  "name": "02_ROAD_ROW",
+  "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE — NOT AN OFFICIAL MUNICIPAL RECORD",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "row_id": "ROW-R001-01",
+        "road_name": "Road R-001 Legal ROW Corridor",
+        "legal_width_m": 9.0,
+        "disclaimer": "SYNTHETIC / ACADEMIC PROTOTYPE — NOT AN OFFICIAL MUNICIPAL RECORD"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [20.0, 0.0],
+            [29.0, 0.0],
+            [29.0, 85.0],
+            [20.0, 85.0],
+            [20.0, 0.0]
+          ]
+        ]
+      }
+    }
+  ]
+}

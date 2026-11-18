@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phase 3D — Human Annotation Review & Correction Studio</title>
+  <style>
+    :root {
+      --bg-dark: #18181c;
+      --panel-bg: #24242e;
+      --accent-blue: #0096ff;
+      --approved-color: #4caf50;
+      --corrected-color: #2196f3;
+      --rejected-color: #f44336;
+      --uncertain-color: #ff9800;
+      --text-light: #f0f0f5;
+      --border-color: #383848;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+    header {
+      background-color: var(--panel-bg);
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.15rem;
+      color: var(--accent-blue);
+    }
+    .provenance-banner {
+      background-color: #332a00;
+      color: #ffcc00;
+      border: 1px solid #665400;
+      padding: 6px 15px;
+      font-size: 0.8rem;
+      text-align: center;
+    }
+    main {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+    }
+    #sidebar {
+      width: 360px;
+      background-color: var(--panel-bg);
+      border-right: 1px solid var(--border-color);
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      overflow-y: auto;
+    }
+    .panel-section {
+      background: rgba(0,0,0,0.25);
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+    }
+    .panel-section h3 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      color: #aaa;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .queue-list {
+      max-height: 200px;
+      overflow-y: auto;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+    }
+    .queue-item {
+      padding: 8px 10px;
+      border-bottom: 1px solid #333;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+    }
+    .queue-item:hover {
+      background-color: rgba(255,255,255,0.05);
+    }
+    .queue-item.active {
+      background-color: rgba(0, 150, 255, 0.2);
+      border-left: 3px solid var(--accent-blue);
+    }
+    .badge {
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 0.75rem;
+      font-weight: bold;
+    }
+    .badge-approved { background-color: var(--approved-color); color: #000; }
+    .badge-corrected { background-color: var(--corrected-color); color: #fff; }
+    .badge-rejected { background-color: var(--rejected-color); color: #fff; }
+    .badge-uncertain { background-color: var(--uncertain-color); color: #000; }
+    .badge-pending { background-color: #666; color: #fff; }
+    
+    .action-btn {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 8px;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+      color: white;
+    }
+    .btn-approve { background-color: var(--approved-color); }
+    .btn-correct { background-color: var(--corrected-color); }
+    .btn-reject { background-color: var(--rejected-color); }
+    .btn-uncertain { background-color: var(--uncertain-color); color: black; }
+    
+    #canvas-container {
+      flex: 1;
+      background-color: #0d0d11;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    canvas {
+      border: 1px solid var(--border-color);
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Phase 3D — Human Annotation Review Studio</h1>
+    <span style="font-size: 0.8rem; color: #aaa;">Priority Queue Inspection (551 Instances)</span>
+  </header>
+  
+  <div class="provenance-banner">
+    ⚠️ <b>SYNTHETIC ACADEMIC DATASET PROVENANCE</b>: The 90 images were extracted from AI-generated storyboard montages. Do not describe as real municipal drone photographs.
+  </div>
+
+  <main>
+    <div id="sidebar">
+      <div class="panel-section">
+        <h3>Priority Review Queue</h3>
+        <div class="queue-list" id="queue-container">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <div class="panel-section">
+        <h3>Resolution Suitability Assessment</h3>
+        <p id="res-assessment" style="font-size: 0.85rem; margin: 0; color: #ffcc00;"></p>
+      </div>
+
+      <div class="panel-section">
+        <h3>Human Review Decisions</h3>
+        <button class="action-btn btn-approve" onclick="decide('APPROVED')">✓ Approve (Physical Object & Boundary Valid)</button>
+        <button class="action-btn btn-correct" onclick="decide('CORRECTED')">✎ Correct Boundary (Fine-Tune Vertices)</button>
+        <button class="action-btn btn-reject" onclick="decide('REJECTED')">✗ Reject (Non-Target / Assumption / Invalid)</button>
+        <button class="action-btn btn-uncertain" onclick="decide('UNCERTAIN')">? Mark Uncertain (Low Resolution Blur)</button>
+      </div>
+
+      <div class="panel-section">
+        <h3>Reviewer Notes</h3>
+        <textarea id="reviewer-notes" style="width: 95%; height: 50px; background: #121216; color: #fff; border: 1px solid var(--border-color); border-radius: 4px; padding: 6px;" placeholder="Add review notes..."></textarea>
+      </div>
+    </div>
+
+    <div id="canvas-container">
+      <canvas id="review-canvas"></canvas>
+    </div>
+  </main>
+
+  <script>
+    const SAMPLE_QUEUE = [
+      { id: "ANN-0001", class: "staircase", split: "val", frame: "R001_SEQ02_FRAME020.jpg", status: "UNCERTAIN", res_ok: false, note: "Low frame resolution (171x136) prevents precise staircase contouring." },
+      { id: "ANN-0002", class: "shop_extension", split: "train", frame: "R001_SEQ01_FRAME022.jpg", status: "UNCERTAIN", res_ok: false, note: "Shop frontage overhang contains resolution uncertainty." },
+      { id: "ANN-0003", class: "veranda", split: "val", frame: "R001_SEQ02_FRAME022.jpg", status: "UNCERTAIN", res_ok: false, note: "Elevated veranda roof blurred at 170x153 scale." },
+      { id: "ANN-0004", class: "awning", split: "train", frame: "R001_SEQ01_FRAME024.jpg", status: "UNCERTAIN", res_ok: false, note: "Awning projection boundary requires high-res re-survey." },
+      { id: "ANN-0005", class: "compound_wall", split: "train", frame: "R001_SEQ01_FRAME005.jpg", status: "CORRECTED", res_ok: true, note: "Trimmed wall boundary away from frame edge." },
+      { id: "ANN-0006", class: "shed", split: "train", frame: "R001_SEQ01_FRAME028.jpg", status: "REJECTED", res_ok: true, note: "Rejected: Overlaps road asphalt and foliage." },
+      { id: "ANN-0007", class: "building", split: "train", frame: "R001_SEQ01_FRAME010.jpg", status: "APPROVED", res_ok: true, note: "Verified clean roof footprint contour." }
+    ];
+
+    let activeIdx = 0;
+    let canvas, ctx;
+
+    window.onload = function() {
+      canvas = document.getElementById("review-canvas");
+      ctx = canvas.getContext("2d");
+      canvas.width = 600;
+      canvas.height = 500;
+      renderQueue();
+      selectItem(0);
+    };
+
+    function renderQueue() {
+      const container = document.getElementById("queue-container");
+      container.innerHTML = "";
+      SAMPLE_QUEUE.forEach((item, idx) => {
+        const div = document.createElement("div");
+        div.className = `queue-item ${idx === activeIdx ? 'active' : ''}`;
+        div.onclick = () => selectItem(idx);
+        div.innerHTML = `
+          <span><b>${item.id}</b>: ${item.class}</span>
+          <span class="badge badge-${item.status.toLowerCase()}">${item.status}</span>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    function selectItem(idx) {
+      activeIdx = idx;
+      renderQueue();
+      const item = SAMPLE_QUEUE[idx];
+      document.getElementById("reviewer-notes").value = item.note;
+      
+      const resElem = document.getElementById("res-assessment");
+      if (item.res_ok) {
+        resElem.innerHTML = "✓ <b>SUFFICIENT RESOLUTION</b>: Structure boundaries clearly distinguishable.";
+        resElem.style.color = "#4caf50";
+      } else {
+        resElem.innerHTML = "⚠️ <b>INSUFFICIENT RESOLUTION</b>: 170x153 frame scale creates boundary blur. Recommended: <b>UNCERTAIN</b>.";
+        resElem.style.color = "#ff9800";
+      }
+      
+      redrawCanvas(item);
+    }
+
+    function redrawCanvas(item) {
+      ctx.fillStyle = "#121216";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#ffffff";
+      ctx.font = "16px sans-serif";
+      ctx.fillText(`Frame: ${item.frame} (${item.split})`, 30, 40);
+      ctx.fillText(`Annotation ID: ${item.id} | Class: ${item.class}`, 30, 70);
+
+      // Draw mock polygon overlay box
+      ctx.strokeStyle = item.status === "APPROVED" ? "#4caf50" : (item.status === "CORRECTED" ? "#2196f3" : (item.status === "REJECTED" ? "#f44336" : "#ff9800"));
+      ctx.lineWidth = 3;
+      ctx.strokeRect(100, 120, 400, 300);
+      ctx.fillStyle = ctx.strokeStyle + "33";
+      ctx.fillRect(100, 120, 400, 300);
+
+      ctx.fillStyle = "#ffffff";
+      ctx.font = "14px sans-serif";
+      ctx.fillText(`Review Status: ${item.status}`, 120, 150);
+      ctx.fillText(`Notes: ${item.note}`, 120, 180);
+    }
+
+    function decide(status) {
+      SAMPLE_QUEUE[activeIdx].status = status;
+      SAMPLE_QUEUE[activeIdx].note = document.getElementById("reviewer-notes").value;
+      renderQueue();
+      selectItem(activeIdx);
+    }
+  </script>
+</body>
+</html>
